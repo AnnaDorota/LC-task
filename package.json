@@ -1,0 +1,22 @@
+{
+  "name": "lc-task",
+  "version": "1.0.0",
+  "description": "n/a",
+  "main": "index.js",
+  "scripts": {
+    "cypress": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnnaDorota/LC-task.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnnaDorota/LC-task/issues"
+  },
+  "homepage": "https://github.com/AnnaDorota/LC-task#readme",
+  "dependencies": {
+    "cypress": "^4.9.0"
+  }
+}
