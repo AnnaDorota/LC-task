@@ -17,14 +17,17 @@ export const login = () => {
   cy.url().then(url => {
     if (url.includes(LC_LOGIN_URL_2)) {
       cy.get(SELECTORS.INPUT_EMAIL)
+        .should('be.visible')
         .type(AUTH.EMAIL)
         .should('have.value', AUTH.EMAIL);
 
       cy.get(SELECTORS.INPUT_PASSWORD)
+        .should('be.visible')
         .type(AUTH.PASSWORD)
         .should('have.value', AUTH.PASSWORD);
 
       cy.get(SELECTORS.BUTTON_SUBMIT)
+        .should('be.visible')
         .click();
     }
 
