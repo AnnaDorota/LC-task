@@ -1,21 +1,34 @@
+const LC_LOGIN_URL_1 = 'https://accounts.labs.livechatinc.com';
+const LC_LOGIN_URL_2 = 'https://accounts.labs.livechat.com';
+const LC_URL = 'https://my.labs.livechatinc.com';
+const SELECTORS = {
+  INPUT_EMAIL: 'input[name="email"]',
+  INPUT_PASSWORD: 'input[name="password"]',
+  BUTTON_SUBMIT: '.form__row--submit > button'
+};
+const AUTH = {
+  EMAIL: 'm.debski+frontend_tests@livechatinc.com',
+  PASSWORD: 'test1@3$'
+};
+
 export const login = () => {
-  cy.visit('https://accounts.labs.livechatinc.com');
+  cy.visit(LC_LOGIN_URL_1);
 
   cy.url().then(url => {
-    if (url.includes('https://accounts.labs.livechat.com')) {
-      cy.get('input[name="email"]')
-        .type('m.debski+frontend_tests@livechatinc.com')
-        .should('have.value', 'm.debski+frontend_tests@livechatinc.com');
+    if (url.includes(LC_LOGIN_URL_2)) {
+      cy.get(SELECTORS.INPUT_EMAIL)
+        .type(AUTH.EMAIL)
+        .should('have.value', AUTH.EMAIL);
 
-      cy.get('input[name="password"]')
-        .type('test1@3$')
-        .should('have.value', 'test1@3$');
+      cy.get(SELECTORS.INPUT_PASSWORD)
+        .type(AUTH.PASSWORD)
+        .should('have.value', AUTH.PASSWORD);
 
-      cy.get('.form__row--submit > button')
+      cy.get(SELECTORS.BUTTON_SUBMIT)
         .click();
     }
 
     cy.url()
-      .should('include', 'https://my.labs.livechatinc.com');
+      .should('include', LC_URL);
   });
 }
